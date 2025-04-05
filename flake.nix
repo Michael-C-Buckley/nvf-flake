@@ -23,7 +23,7 @@
           default = (
             (nvf.lib.neovimConfiguration {
               pkgs = import nixpkgs {inherit system;};
-              modules = [./config.nix];
+              modules = [./config];
             })
             .neovim
           );
