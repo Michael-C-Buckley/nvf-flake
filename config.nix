@@ -4,6 +4,18 @@ _: {
     statusline.lualine.enable = true;
     telescope.enable = true;
     navigation.harpoon.enable = true;
+    useSystemClipboard = true;
+
+    projects.project-nvim.enable = true;
+
+    keymaps = [
+      {
+        mode = "n";
+        key = "<leader>fa";
+        action = ":!alejandra %<CR>";
+        silent = true;
+      }
+    ];
 
     theme = {
       enable = true;
@@ -22,7 +34,6 @@ _: {
 
     utility = {
       oil-nvim.enable = true;
-      project-nvm.enable = true;
     };
   };
 }
