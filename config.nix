@@ -8,8 +8,8 @@ _: {
 
     theme = {
       enable = true;
-      name = "rose-pine";
-      style = "main";
+      name = "nord";
+      style = "dark";
     };
 
     languages = {
