@@ -1,12 +1,15 @@
 _: {
   vim = {
-    autocomplete.blink-cmp.enable = true;
-    statusline.lualine.enable = true;
+    # Navigation
+    projects.project-nvim.enable = true;
     telescope.enable = true;
     navigation.harpoon.enable = true;
-    useSystemClipboard = true;
+    filetree.neo-tree.enable = true;
 
-    projects.project-nvim.enable = true;
+    # Utility
+    autocomplete.blink-cmp.enable = true;
+    statusline.lualine.enable = true;
+    useSystemClipboard = true;
 
     theme = {
       enable = true;
