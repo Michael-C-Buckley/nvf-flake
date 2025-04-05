@@ -1,8 +1,4 @@
 _: {
-  imports = [
-    ./keybinds.nix
-  ];
-
   vim = {
     autocomplete.blink-cmp.enable = true;
     statusline.lualine.enable = true;
@@ -21,7 +17,6 @@ _: {
     languages = {
       enableLSP = true;
       enableTreesitter = true;
-
       nix.enable = true;
       rust.enable = true;
       python.enable = true;
@@ -30,5 +25,7 @@ _: {
     utility = {
       oil-nvim.enable = true;
     };
+
+    keymaps = import ./keymaps.nix;
   };
 }
