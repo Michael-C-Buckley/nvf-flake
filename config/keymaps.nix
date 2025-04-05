@@ -19,4 +19,9 @@ in [
     action = ":!alejandra %<CR>";
     silent = true;
   }
+  {
+    mode = "n";
+    key = "<leader>e";
+    action = ":Neotree toggle<CR>";
+  }
 ] ++ colorBinds
