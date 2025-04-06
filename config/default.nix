@@ -18,14 +18,7 @@ _: {
       style = "dark";
     };
 
-    languages = {
-      enableLSP = true;
-      enableTreesitter = true;
-      bash.enable = true;
-      nix.enable = true;
-      rust.enable = true;
-      python.enable = true;
-    };
+    languages = import ./languages;
 
     utility = {
       oil-nvim.enable = true;
