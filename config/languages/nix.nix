@@ -11,9 +11,5 @@
     enable = true;
     type = "alejandra";
   };
-  lsp = {
-    enable = true;
-    server = "nil";
-  };
-  treesitter.enable = true;
+  lsp.server = "nil";
 }
