@@ -24,6 +24,8 @@ _: {
       oil-nvim.enable = true;
     };
 
+    tabline.nvimBufferline.enable = true;
+
     keymaps = import ./keymaps.nix;
   };
 }
