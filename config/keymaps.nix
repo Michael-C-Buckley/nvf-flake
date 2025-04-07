@@ -5,6 +5,10 @@ let
     "slate"
     "habamax"
     "lunaperche"
+    "gruvbox"
+    "ayu"
+    "rose-pine"
+    "catppuccin-mocha"
   ];
   colorBinds =
     builtins.map (s: {
