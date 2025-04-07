@@ -1,4 +1,4 @@
-_: {
+{pkgs, ...}: {
   vim = {
     # Navigation
     projects.project-nvim.enable = true;
@@ -11,6 +11,7 @@ _: {
     autocomplete.blink-cmp.enable = true;
     statusline.lualine.enable = true;
     useSystemClipboard = true;
+    tabline.nvimBufferline.enable = true;
 
     theme = {
       enable = true;
@@ -18,14 +19,14 @@ _: {
       style = "dark";
     };
 
-    languages = import ./languages;
-
     utility = {
+      mkdir.enable = true;
+      nix-develop.enable = true;
       oil-nvim.enable = true;
     };
 
-    tabline.nvimBufferline.enable = true;
-
+    extraPlugins = import ./plugins {inherit pkgs;};
     keymaps = import ./keymaps.nix;
+    languages = import ./languages;
   };
 }
