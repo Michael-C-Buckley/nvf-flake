@@ -10,5 +10,5 @@ in
     nightfox = createTheme "nightfox" nightfox-nvim;
     rose-pine = createTheme "rose-pine" rose-pine;
     catppuccin = createTheme "catppuccin" catppuccin-nvim;
-    gruvbox = createTheme "gruvbox" gruvbox-nvim;
+    # gruvbox = createTheme "gruvbox" gruvbox-nvim; # Current default
   }

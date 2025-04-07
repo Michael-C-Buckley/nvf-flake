@@ -1,7 +1,5 @@
 let
   schemes = [
-    "desert"
-    "nord"
     "slate"
     "habamax"
     "lunaperche"
