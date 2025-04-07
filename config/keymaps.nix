@@ -2,11 +2,11 @@ let
   schemes = [
     "slate"
     "habamax"
-    "lunaperche"
     "gruvbox"
     "ayu"
     "rose-pine"
     "catppuccin-mocha"
+    "onedark"
   ];
   colorBinds =
     builtins.map (s: {

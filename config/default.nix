@@ -10,15 +10,35 @@
     # Utility
     autopairs.nvim-autopairs.enable = true;
     autocomplete.blink-cmp.enable = true;
+    comments.comment-nvim.enable = true;
     statusline.lualine.enable = true;
     useSystemClipboard = true;
     tabline.nvimBufferline.enable = true;
 
     # Appearance
     theme = {
+      # NVF Default is `onedark`
       enable = true;
-      name = "gruvbox";
+      name = "onedark";
       style = "dark";
+    };
+
+    ui = {
+      borders.enable = true;
+      noice.enable = true;
+      colorizer.enable = true;
+      illuminate.enable = true;
+      fastaction.enable = true;
+      smartcolumn = {
+        enable = true;
+        setupOpts.custom_colorcolumn = {
+          # this is a freeform module, it's `buftype = int;` for configuring column position
+          nix = "110";
+          ruby = "120";
+          java = "130";
+          go = ["90" "130"];
+        };
+      };
     };
 
     dashboard.alpha.enable = true;
