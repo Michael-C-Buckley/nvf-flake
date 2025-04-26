@@ -2,8 +2,8 @@
   description = "NVF Flake";
 
   inputs = {
-    nixpkgs.follows = "nvf/nixpkgs";
     nvf.url = "github:notashelf/nvf";
+    nixpkgs.follows = "nvf/nixpkgs";
   };
 
   outputs = {
@@ -16,14 +16,17 @@
   in {
     packages = builtins.listToAttrs (map (system: {
         name = system;
-        value = {
-          default = (
+        value = let
+          mkNvf = extraModules: (
             (nvf.lib.neovimConfiguration {
               pkgs = import nixpkgs {inherit system;};
-              modules = [./config];
+              modules = [./config] ++ extraModules;
             })
             .neovim
           );
+        in {
+          default = mkNvf [./config/extended.nix];
+          minimal = mkNvf [];
         };
       })
       systems);

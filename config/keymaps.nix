@@ -16,6 +16,15 @@ let
       silent = true;
     })
     schemes;
+
+  telescopeBind = {
+    key,
+    action
+  }: {
+    mode = "n";
+    key = "<leader>f${key}";
+    action = ":Telescope ${action}<CR>";
+  };
 in
   [
     {
@@ -27,12 +36,22 @@ in
     {
       mode = "n";
       key = "<leader>ff";
-      action = ":FzfLua files<CR>";
+      action = ":Telescope find_files<CR>";
     }
     {
       mode = "n";
-      key = "<leader>e";
-      action = ":Neotree toggle<CR>";
+      key = "<leader>fg";
+      action = ":Telescope live_grep<CR>";
+    }
+    {
+      mode = "n";
+      key = "<leader>fh";
+      action = ":Telescope help_tags<CR>";
+    }
+    {
+      mode = "n";
+      key = "<leader>fb";
+      action = ":Telescope buffers<CR>";
     }
   ]
   ++ colorBinds

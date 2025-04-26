@@ -1,19 +1,18 @@
 {pkgs, ...}: {
   vim = {
+    extraPlugins = import ./plugins {inherit pkgs;};
+    keymaps = import ./keymaps.nix;
+
     # Navigation
     projects.project-nvim.enable = true;
     telescope.enable = true;
     navigation.harpoon.enable = true;
-    filetree.neo-tree.enable = true;
-    fzf-lua.enable = true;
 
     # Utility
     autopairs.nvim-autopairs.enable = true;
-    autocomplete.blink-cmp.enable = true;
     comments.comment-nvim.enable = true;
     statusline.lualine.enable = true;
     useSystemClipboard = true;
-    tabline.nvimBufferline.enable = true;
 
     # Appearance
     theme = {
@@ -25,7 +24,6 @@
 
     ui = {
       borders.enable = true;
-      noice.enable = true;
       colorizer.enable = true;
       illuminate.enable = true;
       fastaction.enable = true;
@@ -39,8 +37,6 @@
         };
       };
     };
-
-    dashboard.alpha.enable = true;
 
     utility = {
       mkdir.enable = true;
@@ -58,10 +54,6 @@
       gitsigns.enable = true;
     };
 
-    extraPlugins = import ./plugins {inherit pkgs;};
-    keymaps = import ./keymaps.nix;
-    languages = import ./languages;
-
     terminal = {
       toggleterm = {
         enable = true;
@@ -73,11 +65,6 @@
       nvim-scrollbar.enable = true;
       nvim-web-devicons.enable = true;
       nvim-cursorline.enable = true;
-      cinnamon-nvim.enable = true;
-      fidget-nvim.enable = true;
-      highlight-undo.enable = true;
-      indent-blankline.enable = true;
-      rainbow-delimiters.enable = true;
     };
   };
 }
