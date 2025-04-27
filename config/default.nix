@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   vim = {
     extraPlugins = import ./plugins {inherit pkgs;};
-    keymaps = import ./keymaps.nix;
+    keymaps = import ./keymaps/basic.nix;
 
     # Navigation
     projects.project-nvim.enable = true;

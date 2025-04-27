@@ -1,11 +1,14 @@
-{pkgs, ...}: {
+_: {
   vim = {
     languages = import ./languages;
+    keymaps = import ./keymaps/extended.nix;
 
     autocomplete.blink-cmp.enable = true;
     tabline.nvimBufferline.enable = true;
 
     dashboard.alpha.enable = true;
+
+    filetree.neo-tree.enable = true;
 
     ui = {
       noice.enable = true;
