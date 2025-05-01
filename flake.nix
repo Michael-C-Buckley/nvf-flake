@@ -13,6 +13,24 @@
   }: let
     systems = ["x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin"];
   in {
+    devShells = builtins.listToAttrs (map (system: let
+        pkgs = import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+        };
+      in {
+        name = system;
+        value = {
+          default = pkgs.mkShell {
+            buildInputs = with pkgs; [
+              alejandra
+              git
+              tig
+            ];
+          };
+        };
+      })
+      systems);
     packages = builtins.listToAttrs (map (system: {
         name = system;
         value = let
