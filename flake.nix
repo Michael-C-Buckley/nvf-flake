@@ -4,6 +4,7 @@
   inputs = {
     nvf.url = "github:notashelf/nvf";
     nixpkgs.follows = "nvf/nixpkgs";
+    flake-parts.follows = "nvf/flake-parts";
   };
 
   outputs = {

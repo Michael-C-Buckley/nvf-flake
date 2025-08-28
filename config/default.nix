@@ -1,7 +1,16 @@
 {pkgs, ...}: {
   vim = {
-    extraPlugins = import ./plugins {inherit pkgs;};
     keymaps = import ./keymaps/basic.nix;
+    extraPlugins = import ./plugins {inherit pkgs;};
+    startPlugins = with pkgs.vimPlugins; [
+      everforest
+    ];
+
+    lazy.plugins."telescope-undo.nvim" = {
+      package = pkgs.vimPlugins.telescope-undo-nvim;
+    };
+
+    options.tabstop = 4;
 
     # Navigation
     projects.project-nvim.enable = true;
@@ -12,7 +21,16 @@
     autopairs.nvim-autopairs.enable = true;
     comments.comment-nvim.enable = true;
     statusline.lualine.enable = true;
-    useSystemClipboard = true;
+
+    notes = {
+      todo-comments.enable = true;
+    };
+
+    #Clipboard
+    clipboard = {
+      enable = true;
+      registers = "unnamedplus";
+    };
 
     # Appearance
     theme = {
@@ -47,10 +65,12 @@
     treesitter = {
       enable = true;
       context.enable = true;
+      fold = true;
     };
 
     git = {
       enable = true;
+      git-conflict.enable = true;
       gitsigns.enable = true;
     };
 
@@ -60,6 +80,8 @@
         lazygit.enable = true;
       };
     };
+
+    lsp.enable = true;
 
     visuals = {
       nvim-scrollbar.enable = true;

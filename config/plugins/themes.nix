@@ -1,7 +1,11 @@
 {pkgs}: let
   createTheme = name: package: {
-    package = package;
+    inherit package;
     setup = "require('${name}').setup {}";
+  };
+  # For simple Vim colorschemes
+  basicTheme = package: {
+    inherit package;
   };
 in
   with pkgs.vimPlugins; {
@@ -11,4 +15,5 @@ in
     rose-pine = createTheme "rose-pine" rose-pine;
     catppuccin = createTheme "catppuccin" catppuccin-nvim;
     gruvbox = createTheme "gruvbox" gruvbox-nvim;
+    starrynight = basicTheme starrynight;
   }

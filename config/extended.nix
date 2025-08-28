@@ -6,12 +6,24 @@ _: {
     autocomplete.blink-cmp.enable = true;
     tabline.nvimBufferline.enable = true;
 
-    dashboard.alpha.enable = true;
+    dashboard.alpha = {
+      enable = true;
+      theme = "theta";
+    };
 
     filetree.neo-tree.enable = true;
 
     ui = {
       noice.enable = true;
+      breadcrumbs = {
+        enable = true;
+        lualine.winbar.enable = true;
+        navbuddy.enable = true;
+      };
+    };
+
+    runner.run-nvim = {
+      enable = true;
     };
 
     visuals = {
