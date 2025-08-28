@@ -2,9 +2,18 @@
   description = "NVF Flake";
 
   inputs = {
-    nvf.url = "github:notashelf/nvf";
-    nixpkgs.follows = "nvf/nixpkgs";
-    flake-parts.follows = "nvf/flake-parts";
+    nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    systems.url = "github:nix-systems/default";
+
+    nvf = {
+      url = "github:notashelf/nvf";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-parts.follows = "flake-parts";
+        systems.follows = "systems";
+      };
+    };
   };
 
   outputs = {

@@ -18,10 +18,7 @@
     },
     "flake-parts": {
       "inputs": {
-        "nixpkgs-lib": [
-          "nvf",
-          "nixpkgs"
-        ]
+        "nixpkgs-lib": "nixpkgs-lib"
       },
       "locked": {
         "lastModified": 1754487366,
@@ -54,27 +51,45 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1755049066,
-        "narHash": "sha256-ANrc15FSoOAdNbfKHxqEJjZLftIwIsenJGRb/04K41s=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "e45f8f193029378d0aaee5431ba098dc80054e9a",
+        "lastModified": 1756323149,
+        "narHash": "sha256-rRfBRJzq5gqKdR75XT15PJu7b1eRhYVk/DBRva2+UsM=",
+        "rev": "8a6d5427d99ec71c64f0b93d45778c889005d9c2",
+        "type": "tarball",
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-25.11pre852432.8a6d5427d99e/nixexprs.tar.xz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz"
+      }
+    },
+    "nixpkgs-lib": {
+      "locked": {
+        "lastModified": 1753579242,
+        "narHash": "sha256-zvaMGVn14/Zz8hnp4VWT9xVnhc8vuL3TStRqwk22biA=",
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
+        "rev": "0f36c44e01a6129be94e3ade315a5883f0228a6e",
         "type": "github"
       },
       "original": {
-        "owner": "nixos",
-        "ref": "nixpkgs-unstable",
-        "repo": "nixpkgs",
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
         "type": "github"
       }
     },
     "nvf": {
       "inputs": {
         "flake-compat": "flake-compat",
-        "flake-parts": "flake-parts",
+        "flake-parts": [
+          "flake-parts"
+        ],
         "mnw": "mnw",
-        "nixpkgs": "nixpkgs",
-        "systems": "systems"
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "systems": [
+          "systems"
+        ]
       },
       "locked": {
         "lastModified": 1755463179,
@@ -92,15 +107,10 @@
     },
     "root": {
       "inputs": {
-        "flake-parts": [
-          "nvf",
-          "flake-parts"
-        ],
-        "nixpkgs": [
-          "nvf",
-          "nixpkgs"
-        ],
-        "nvf": "nvf"
+        "flake-parts": "flake-parts",
+        "nixpkgs": "nixpkgs",
+        "nvf": "nvf",
+        "systems": "systems"
       }
     },
     "systems": {
