@@ -3,6 +3,8 @@
 
   inputs = {
     nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
+
+    flake-compat.url = "github:edolstra/flake-compat";
     flake-parts.url = "github:hercules-ci/flake-parts";
     systems.url = "github:nix-systems/default";
 
@@ -10,6 +12,7 @@
       url = "github:notashelf/nvf";
       inputs = {
         nixpkgs.follows = "nixpkgs";
+        flake-compat.follows = "flake-compat";
         flake-parts.follows = "flake-parts";
         systems.follows = "systems";
       };
