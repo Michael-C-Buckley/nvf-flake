@@ -36,8 +36,8 @@
     theme = {
       # NVF Default is `onedark`
       enable = true;
-      name = "onedark";
-      style = "dark";
+      name = "tokyonight";
+      style = "night";
     };
 
     ui = {
