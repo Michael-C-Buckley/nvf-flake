@@ -1,0 +1,2 @@
+#! /nix/store/42r0qnkkx9y0wl3vcaa7iyb2cn5bd5qy-dash-0.5.13.1/bin/dash
+echo -n /nix/store/ixrdhlcjjz4z7hymgwcrc7jlmn766wg0-nvf-init.lua

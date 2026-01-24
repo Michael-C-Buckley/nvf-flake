@@ -1,0 +1,4 @@
+#! /nix/store/lw117lsr8d585xs63kx5k233impyrq7q-bash-5.3p3/bin/bash -e
+export NVIM_APPNAME='nvf'
+export VIMINIT='source /nix/store/10ajrvj9gbh0m9wnr8j46zfxqdrci199-mnw-configDir/init.lua'
+exec -a "$0" "/nix/store/803mvscxps1ci47p009bblxb6cvn0xhg-mnw-0.11.5/bin/.nvim-wrapped"  --cmd "lua vim.opt.packpath:prepend('/nix/store/10ajrvj9gbh0m9wnr8j46zfxqdrci199-mnw-configDir');vim.opt.runtimepath:prepend('/nix/store/10ajrvj9gbh0m9wnr8j46zfxqdrci199-mnw-configDir');vim.g.loaded_node_provider=0;vim.g.loaded_perl_provider=0;vim.g.loaded_python_provider=0;vim.g.loaded_python3_provider=0;vim.g.ruby_host_prog='/nix/store/7xfn89xsqfx27h30c6xrxil8lrmvl1v7-neovim-providers/bin/neovim-ruby-host'" "$@" 

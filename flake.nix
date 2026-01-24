@@ -4,17 +4,18 @@
   inputs = {
     nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
 
-    flake-compat.url = "github:edolstra/flake-compat";
-    flake-parts.url = "github:hercules-ci/flake-parts";
-    systems.url = "github:nix-systems/default";
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
 
     nvf = {
       url = "github:notashelf/nvf";
       inputs = {
         nixpkgs.follows = "nixpkgs";
-        flake-compat.follows = "flake-compat";
+        flake-compat.follows = "";
         flake-parts.follows = "flake-parts";
-        systems.follows = "systems";
+        ndg.follows = ""; # Documentation generator
       };
     };
   };
@@ -22,43 +23,20 @@
   outputs = {
     nixpkgs,
     nvf,
+    flake-parts,
     ...
-  }: let
-    systems = ["x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin"];
-  in {
-    devShells = builtins.listToAttrs (map (system: let
-        pkgs = import nixpkgs {
-          inherit system;
-          config.allowUnfree = true;
-        };
-      in {
-        name = system;
-        value = {
-          default = pkgs.mkShell {
-            buildInputs = with pkgs; [
-              alejandra
-              git
-              tig
-            ];
-          };
-        };
-      })
-      systems);
-    packages = builtins.listToAttrs (map (system: {
-        name = system;
-        value = let
-          mkNvf = extraModules: (
-            (nvf.lib.neovimConfiguration {
-              pkgs = import nixpkgs {inherit system;};
-              modules = [./config] ++ extraModules;
-            })
-            .neovim
-          );
-        in {
-          default = mkNvf [./config/extended.nix];
-          minimal = mkNvf [];
-        };
-      })
-      systems);
-  };
+  } @ inputs: let
+    inherit (nixpkgs.lib) hasPrefix lists;
+    inherit (nixpkgs.lib.fileset) toList fileFilter;
+
+    # Replacement for import-tree
+    mkImport = path: toList (fileFilter (f: f.hasExt "nix" && !(hasPrefix "_" f.name)) path);
+  in
+    flake-parts.lib.mkFlake {inherit inputs;} {
+      systems = ["x86_64-linux" "aarch64-linux" "aarch64-darwin"];
+      imports = lists.flatten [
+        flake-parts.flakeModules.modules
+        (mkImport ./nvf)
+      ];
+    };
 }
