@@ -15,5 +15,7 @@ in {
       nvf = mkNvf [full];
       nvf-minimal = mkNvf [default];
     };
+
+    devShells.default = import ../shell.nix {inherit pkgs;};
   };
 }

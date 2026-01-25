@@ -1,0 +1,26 @@
+[type.nix]
+# Catch the UUIDs for my drives currently
+extend-glob = ["*filesystems.nix"]
+extend-words = { "BA" = "BA" }
+
+[type.png]
+extend-glob = ["*.png"]
+check-file = false
+
+[type.gz]
+extend-glob = ["*.gz"]
+check-file = false
+
+[default.extend-words]
+# This is an nvim plugin
+noice = "noice"
+# This is a KDE package
+thumbnailers = "thumbnailers"
+# vscode extensions
+routeros = "routeros"
+metaphore = "metaphore"
+# Shorthand used in Gnupg and my key finder
+fpr = "fpr"
+
+[default]
+extend-ignore-identifiers-re = ['LESS_TERMCAP_\w+$']
