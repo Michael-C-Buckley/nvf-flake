@@ -2,7 +2,7 @@
   description = "NVF Flake";
 
   inputs = {
-    nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
+    nixpkgs.follows = "nvf/nixpkgs";
 
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
@@ -12,7 +12,6 @@
     nvf = {
       url = "github:notashelf/nvf";
       inputs = {
-        nixpkgs.follows = "nixpkgs";
         flake-compat.follows = "";
         flake-parts.follows = "flake-parts";
         ndg.follows = ""; # Documentation generator
@@ -22,7 +21,6 @@
 
   outputs = {
     nixpkgs,
-    nvf,
     flake-parts,
     ...
   } @ inputs: let
