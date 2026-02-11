@@ -2,10 +2,21 @@
   flake.modules.nvf.default = {
     vim.keymaps = [
       {
-        # Close buffer
         mode = "n";
-        key = "<leader>bd";
-        action = ":bd<CR>";
+        key = "<M-w>";
+        action = ":bdelete<CR>";
+        silent = true;
+      }
+      {
+        mode = "n";
+        key = "<M-,>";
+        action = ":bprevious<CR>";
+        silent = true;
+      }
+      {
+        mode = "n";
+        key = "<M-.>";
+        action = ":bnext<CR>";
         silent = true;
       }
       {
