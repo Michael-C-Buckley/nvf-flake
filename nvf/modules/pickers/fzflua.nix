@@ -10,9 +10,9 @@ in {
       fzf-lua.enable = true;
 
       keymaps = [
-        (mkFzfBind "ff" "files")
-        (mkFzfBind "fg" "live_grep")
-        (mkFzfBind "fr" "resume")
+        (mkFzfBind "f" "files")
+        (mkFzfBind "/" "live_grep")
+        (mkFzfBind ";" "resume")
         (mkFzfBind "cs" "colorschemes")
         (mkFzfBind "gs" "git_status")
         (mkFzfBind "gd" "git_diff")
