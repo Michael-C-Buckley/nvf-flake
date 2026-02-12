@@ -11,6 +11,7 @@
       go
       python
       nix
+      rust
     ];
   };
 }
