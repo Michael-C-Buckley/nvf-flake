@@ -8,8 +8,7 @@
     ];
 
     vim = {
-      # They get kind of annoying
-      autopairs.nvim-autopairs.enable = false;
+      autopairs.nvim-autopairs.enable = true;
 
       notes.todo-comments.enable = true;
 
