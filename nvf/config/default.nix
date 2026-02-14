@@ -33,8 +33,8 @@
       };
 
       spellcheck = {
-        enable = true;
-        vim-dirtytalk.enable = true; # for programming words
+        enable = false;
+        vim-dirtytalk.enable = false; # for programming words
         ignoredFiletypes = ["toggleterm" "gitcommit"];
       };
 

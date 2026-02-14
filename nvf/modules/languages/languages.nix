@@ -7,7 +7,7 @@
         lightbulb.enable = true;
         trouble.enable = true;
         otter-nvim.enable = true;
-        harper-ls.enable = true;
+        harper-ls.enable = false;
       };
       languages = {
         enableFormat = true;
