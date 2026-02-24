@@ -24,8 +24,9 @@
           };
         };
 
+        # Neat but distracting so I've disabled it
         colorizer = {
-          enable = true;
+          enable = false;
           setupOpts.filetypes = {
             "*" = {
               mode = "background";
